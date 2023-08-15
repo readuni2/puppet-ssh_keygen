@@ -1,2 +1,7 @@
-.travis.yml:
-  secure: "ZiCBVZ7uHSaUcNQZiayFta9Iy1N0/lzVDMIL7jLzGyIxig4eX6vMEaEbmLCDP0XjnUSDtxh4G6C43BKMlvFtpl+fs41ZSC/b/FRCsYADkl7algl3+vzOSlC+x0R303/KisizETnGZaqvgUDRtyogZiitYumxuJ/bkQcDgJ+3W/8="
+---
+.puppet-lint.rc:
+  enabled_lint_checks:
+    - parameter_documentation
+    - parameter_types
+spec/spec_helper_acceptance.rb:
+  unmanaged: false

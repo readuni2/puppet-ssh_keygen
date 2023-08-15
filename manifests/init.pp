@@ -51,7 +51,6 @@ define ssh_keygen (
   Optional[String] $comment  = undef,
   Optional[Array[String]] $options  = undef,
 ) {
-
   Exec { path => '/bin:/usr/bin' }
 
   $_user = $user ? {
@@ -135,15 +134,17 @@ define ssh_keygen (
       default => shell_join($options),
     }
 
-    $command = delete_undef_values([
-      'ssh-keygen',
-      $type_opt,
-      $bits_opt,
-      $filename_opt,
-      $passphrase_opt,
-      $comment_opt,
-      $options_opt,
-    ])
+    $command = delete_undef_values(
+      [
+        'ssh-keygen',
+        $type_opt,
+        $bits_opt,
+        $filename_opt,
+        $passphrase_opt,
+        $comment_opt,
+        $options_opt,
+      ]
+    )
 
     exec { "ssh_keygen-${name}":
       command => join($command, ' '),
