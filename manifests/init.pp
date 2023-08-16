@@ -43,7 +43,7 @@ define ssh_keygen (
   Optional[String] $group    = undef,
   Enum['rsa', 'dsa', 'ecdsa', 'ed25519', 'rsa1'] $type   = 'rsa',
   Boolean           $from_master = false,
-  String            $master_dir  = 'ssh',
+  String            $master_dir  = 'user',
   String            $host_name   = $fqdn,
   Optional[Integer] $bits        = 2048,
   Optional[Stdlib::Absolutepath] $home     = undef,
