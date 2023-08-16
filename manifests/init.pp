@@ -81,6 +81,9 @@ define ssh_keygen (
       undef   => "${_user}@${host_name}",
       default => $comment,
     }
+    
+    #saniatise master_dir
+    $_master_dir = regsubst($master_dir,'\.\./','','G')
 
     # Generate RSA keys reliably
     $key_priv = ssh_keygen({
