@@ -55,9 +55,39 @@ ssh_keygen { 'root':
 }
 ```
 
+Genrate and store key in puppet master server
+```puppet
+ssh_keygen { 'john':
+  from_master => true,
+  type => 'ed25519',
+}
+```
+
+Genrate and store key for a service on puppet master server
+```puppet
+ssh_keygen { 'sftp-service':
+  from_master => true,
+  master_dir => "ssh/service/${fqdn}"
+  filename => "$service_dir/ssh_host_$type",
+  type => $type,
+}
+```
+
+Genrate and store key for a host on puppet master server
+```puppet
+ssh_keygen { 'ssh_host_rsa_key':
+  user => 'root',
+  from_master => true,
+  master_dir => "ssh/host/${fqdn}"
+  filename => '/etc/ssh/ssh_host_rsa_key',
+  type => rsa,
+  bits => 3076,
+}
+```
 ## Development
 
-This module is maintained by [Vox Pupuli](https://voxpupuli.org/). Voxpupuli
+This module is maintained by [readuni1(https://github.com/readuni1). readuni1
+and is a fork from [Vox Pupuli](https://voxpupuli.org/).
 welcomes new contributions to this module, especially those that include
 documentation and rspec tests. We are happy to provide guidance if necessary.
 
