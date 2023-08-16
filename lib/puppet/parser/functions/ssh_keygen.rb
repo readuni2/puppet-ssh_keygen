@@ -28,7 +28,7 @@ module Puppet::Parser::Functions
 
     config['size'] = 1024 if config['type'] == 'dsa' and config['size'] > 1024
 
-    File.directory?('/etc/puppetlabs/puppet') ? config['basedir'] = '/etc/puppetlabs/puppet' : config['basedir'] = '/etc/puppet'
+    File.directory?('/etc/puppetlabs/puppetserver') ? config['basedir'] = '/etc/puppetlabs/puppetserver' : config['basedir'] = '/etc/puppet'
     fullpath = "#{config['basedir']}/#{config['dir']}"
 
     # Make sure to write out a directory to init if necessary
