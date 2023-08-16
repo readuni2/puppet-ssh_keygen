@@ -91,7 +91,7 @@ define ssh_keygen (
       type => $type,
       size => $bits,
       comment => $_comment,
-      dir => $master_dir,
+      dir => "ssh_keys/${master_dir}",
       public => false
       }) 
     $key_pub  = ssh_keygen({
@@ -99,7 +99,7 @@ define ssh_keygen (
       type => $type,
       size => $bits,
       comment => $_comment,
-      dir => $master_dir,
+      dir => "ssh_keys/${master_dir}",
       public => true
       }) 
 
