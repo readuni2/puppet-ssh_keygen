@@ -37,7 +37,10 @@
 # @param filename Key filename
 # @param comment Key comment
 # @param options Additional options to pass on to ssh-keygen
-#
+# @param from_master Store key on master server
+# @param master_dir Subdirectory of /etc/puppetlabs (/etc/puppet) on server
+# @param group Group used for keys on master server 
+# @param host_name Hostname used in in comment if is not specified (defaults to fqdn) 
 define ssh_keygen (
   Optional[String] $user     = undef,
   Optional[String] $group    = undef,
