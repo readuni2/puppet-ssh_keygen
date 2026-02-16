@@ -48,7 +48,7 @@ define ssh_keygen (
   Enum['rsa', 'dsa', 'ecdsa', 'ed25519', 'rsa1'] $type   = 'rsa',
   Boolean           $from_master = false,
   String            $master_dir  = 'user',
-  String            $host_name   = $fqdn,
+  String            $host_name   = $facts['networking']['fqdn'],
   Optional[Integer] $bits        = 2048,
   Optional[Stdlib::Absolutepath] $home     = undef,
   Optional[Stdlib::Absolutepath] $filename = undef,
